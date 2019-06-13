@@ -1,10 +1,13 @@
-import {Canvas} from "./src/canvas.js";
+import {SvgCanvas} from "./src/canvas/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 
+/**
+ * Test project
+ */
 export class Project {
     get canvas() {
         if (this._canvas == null) {
-            this._canvas = new Canvas();
+            this._canvas = new SvgCanvas("100%", "100%");
         }
         return this._canvas;
     }

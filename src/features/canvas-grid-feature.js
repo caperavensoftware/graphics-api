@@ -10,7 +10,7 @@ export class CanvasGridFeature extends BaseFeature {
      * @returns {Promise<void>}
      */
     static async register(collection) {
-        super.register(collection, CanvasGridFeature);
+        return super.register(collection, CanvasGridFeature);
     }
 
     /**
@@ -19,9 +19,13 @@ export class CanvasGridFeature extends BaseFeature {
      * @returns {Promise<void>}
      */
     static async unregister(collection) {
-        super.unregister(collection, CanvasGridFeature);
+        return super.unregister(collection, CanvasGridFeature);
     }
 
+    /**
+     * Render grid lines
+     */
     render() {
+
     }
 }
