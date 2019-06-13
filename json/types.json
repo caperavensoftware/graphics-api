@@ -1,0 +1,43 @@
+{
+  "class": {
+    "name": "vector",
+    "property": "values: array",
+
+    "function": {
+      "name": "add",
+      "parameter": "v1",
+      "parameter": "v2",
+      "returns": "vector"
+    },
+
+    "function": {
+      "name": "remove",
+      "parameter": "v1",
+      "parameter": "v2",
+      "returns": "vector"
+    },
+
+    "function": {
+      "name": "multiply",
+      "parameter": "v1",
+      "parameter": "v2",
+      "returns": "vector"
+    }
+  },
+
+  "class": {
+    "name": "vector2",
+    "extends": "vector",
+    "property": "values: [2]",
+    "property": "x: values[0]",
+    "property": "y: values[1]"
+  },
+
+  "class": {
+    "name": "vector4",
+    "extends": "vector2",
+    "property": "values: [4]",
+    "property": "width: values[2]",
+    "property": "height: values[3]"
+  }
+}

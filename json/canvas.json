@@ -1,0 +1,16 @@
+{
+  "file": "canvas.js",
+  "class": {
+    "name": "canvas",
+    "property": "features",
+    "property": "background",
+    "property": "width",
+    "property": "height",
+
+    "function": "render",
+    "function": {
+      "name": "addFeature",
+      "parameter": "feature"
+    }
+  }
+}

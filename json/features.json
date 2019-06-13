@@ -1,0 +1,11 @@
+{
+  "file": "features.js",
+  "class": {
+    "name": "feature",
+    "function": {
+      "name": "register",
+      "static": true,
+      "parameter": "target"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "graphic is the root of all renderable objects",
+
+  "class": {
+    "name": "graphic",
+    "property": "location: vector2",
+    "property": "bbox: vector4",
+    "property": "scale: vector4",
+
+    "function": "render",
+
+    "function": {
+      "name": "renderScale",
+      "returns": "vector4",
+      "_comment": "get new render size according to scale using bbox's width and height"
+    }
+  }
+}
