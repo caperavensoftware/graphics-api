@@ -1,4 +1,5 @@
 import {Base} from "./../lib/base.js";
+import {Scene} from "./../scene/scene.js";
 
 /**
  * This is a base class for canvas types.
@@ -28,6 +29,26 @@ export class Canvas extends Base {
         }
 
         this.setProperty("feature", newValue);
+    }
+
+    /**
+     * Scene getter
+     * @returns {Scene}
+     */
+    get scene() {
+        if (this._scene == null) {
+            this._scene = new Scene();
+        }
+
+        return this._scene;
+    }
+
+    /**
+     * Scene setter
+     * @param newValue
+     */
+    set scene(newValue) {
+        this.setProperty("scene", newValue);
     }
 
     /**

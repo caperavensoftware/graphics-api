@@ -8,7 +8,12 @@ export class Base {
      * @param value
      */
     setProperty(name, value) {
-        this[`_${name}`] = value;
+        const field = `_${name}`;
+        if (this[field] != null && this[field].dispose != null) {
+            this[field].dispose();
+        }
+
+        this[field] = value;
         this.propertyChanged(name, value);
     }
 

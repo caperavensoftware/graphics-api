@@ -1,5 +1,6 @@
 import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
+import {createTestScene} from "./test-scene.js";
 
 /**
  * Test project
@@ -21,6 +22,7 @@ export class Project {
 
     constructor() {
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
+        createTestScene(this.canvas.scene);
         window.addEventListener('unhandledrejection', event => alert(event.reason));
     }
 
