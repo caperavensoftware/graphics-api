@@ -1,5 +1,5 @@
 import {Canvas} from "./svg-canvas.js";
-import {createSvg} from "./../svg-utils/create.js";
+import {createSvg} from "./create.js";
 
 /**
  * This is a svg canvas class responsible for rendering svg scenes
@@ -36,9 +36,9 @@ export class SvgCanvas extends Canvas {
      */
     constructor(width, height) {
         super();
+        this._changeable = ["width", "height"];
         this.width = width;
         this.height = height;
-        this._changeable = ["width", "height"];
     }
 
     /**

@@ -3,9 +3,9 @@
 
   "class": {
     "name": "graphic",
-    "property": "location: vector2",
     "property": "bbox: vector4",
     "property": "scale: vector4",
+    "property": "structure",
 
     "function": "render",
 

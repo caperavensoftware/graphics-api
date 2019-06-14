@@ -22,6 +22,7 @@ export class BaseFeature {
             collection.find((item, index) => {
                 if (item instanceof(type)) {
                     foundIndex = index;
+                    return item;
                 }
             });
 

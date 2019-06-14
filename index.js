@@ -1,4 +1,4 @@
-import {SvgCanvas} from "./src/canvas/svg-canvas.js";
+import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 
 /**

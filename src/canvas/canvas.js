@@ -1,5 +1,9 @@
 import {Base} from "./../lib/base.js";
 
+/**
+ * This is a base class for canvas types.
+ * Do not use this class directly but instead the appropriate derived instance.
+ */
 export class Canvas extends Base {
     /**
      * Feature property getter
