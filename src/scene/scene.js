@@ -1,17 +1,15 @@
 /**
  * Base class for scene based objects
  */
-class SceneBase {
+import {Base} from "./../lib/base.js";
+
+class SceneBase extends Base {
     /**
      * Items getter
      * @returns {Array}
      */
     get items() {
-        if (this._items == null) {
-            this._items = [];
-        }
-
-        return this._items;
+        return this.getProperty("items", () => []);
     }
 
     /**

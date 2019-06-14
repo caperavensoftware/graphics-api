@@ -62,7 +62,7 @@ class Vector {
     }
 }
 
-class Vector2 extends Vector {
+export class Vector2 extends Vector {
     /**
      * Get x value of the vector
      * @returns {*}
@@ -105,7 +105,7 @@ class Vector2 extends Vector {
     }
 }
 
-class Vector4 extends Vector2 {
+export class Vector4 extends Vector2 {
     /**
      * Get the width value from the values matrix
      * @returns {*}

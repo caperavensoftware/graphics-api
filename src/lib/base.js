@@ -2,6 +2,15 @@
  * This is a base class with some standard base features to inherit from
  */
 export class Base {
+    getProperty(name, callback) {
+        const field = `_${name}`;
+        if (this[field] == null) {
+            this[field] = callback();
+        }
+
+        return this[field];
+    }
+
     /**
      * This function is used by class property setters to change the value and notify the changes
      * @param name

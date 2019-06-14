@@ -10,10 +10,7 @@ export class SvgCanvas extends Canvas {
      * @returns {SVGElement}
      */
     get svg() {
-        if (this._svg == null) {
-            this._svg = createSvg();
-        }
-        return this._svg;
+        return this.getProperty("svg", createSvg);
     }
 
     /**

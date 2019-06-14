@@ -1,26 +1,22 @@
 import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 import {createTestScene} from "./test-scene.js";
+import {Base} from "./src/lib/base.js";
 
 /**
  * Test project
  */
-export class Project {
+export class Project extends Base {
     get canvas() {
-        if (this._canvas == null) {
-            this._canvas = new SvgCanvas("100%", "100%", "whitesmoke");
-        }
-        return this._canvas;
+        return this.getProperty("canvas", () => new SvgCanvas("100%", "100%", "whitesmoke"));
     }
 
     set canvas(newValue) {
-        if (this._canvas != null) {
-            this._canvas.dispose();
-        }
-        this._canvas = newValue;
+        this.setProperty("canvas", newValue);
     }
 
     constructor() {
+        super();
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
         createTestScene(this.canvas.scene);
         window.addEventListener('unhandledrejection', event => alert(event.reason));

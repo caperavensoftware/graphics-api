@@ -11,10 +11,7 @@ export class Canvas extends Base {
      * @returns {Array}
      */
     get features() {
-        if (this._features == null) {
-            this._features = [];
-        }
-        return this._features;
+        return this.getProperty("features", () => []);
     }
 
     /**
@@ -36,11 +33,7 @@ export class Canvas extends Base {
      * @returns {Scene}
      */
     get scene() {
-        if (this._scene == null) {
-            this._scene = new Scene();
-        }
-
-        return this._scene;
+        return this.getProperty("scene", () => new Scene());
     }
 
     /**
