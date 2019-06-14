@@ -7,7 +7,7 @@ import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 export class Project {
     get canvas() {
         if (this._canvas == null) {
-            this._canvas = new SvgCanvas("100%", "100%");
+            this._canvas = new SvgCanvas("100%", "100%", "whitesmoke");
         }
         return this._canvas;
     }

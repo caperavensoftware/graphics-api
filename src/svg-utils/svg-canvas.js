@@ -1,4 +1,4 @@
-import {Canvas} from "./svg-canvas.js";
+import {Canvas} from "./../canvas/canvas.js";
 import {createSvg} from "./create.js";
 
 /**
@@ -34,11 +34,13 @@ export class SvgCanvas extends Canvas {
      * @param width {number/percentage}
      * @param height {number/percentage}
      */
-    constructor(width, height) {
+    constructor(width, height, background) {
         super();
-        this._changeable = ["width", "height"];
+        this._attributes = ["width", "height"];
+        this._styleProperties = ["background"];
         this.width = width;
         this.height = height;
+        this.background = background;
     }
 
     /**
@@ -54,8 +56,12 @@ export class SvgCanvas extends Canvas {
      * @param value {value}: new value of the property
      */
     propertyChanged(name, value) {
-        if (this._changeable.indexOf(name) != -1) {
-            this.svg.setAttribute(name, value);
+        if (this._attributes.indexOf(name) != -1) {
+            this.svg.setAttribute(name.toLowerCase(), value);
+        }
+
+        if (this._styleProperties.indexOf(name) != -1) {
+            this.svg.style[name.toLowerCase()] = value;
         }
     }
 }
