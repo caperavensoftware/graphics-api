@@ -2,6 +2,7 @@ import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 import {createTestScene} from "./test-scene.js";
 import {Base} from "./src/lib/base.js";
+import {Graphic} from "./src/scene/graphic.js";
 
 /**
  * Test project
@@ -20,6 +21,8 @@ export class Project extends Base {
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
         createTestScene(this.canvas.scene);
         window.addEventListener('unhandledrejection', event => alert(event.reason));
+
+        const g = new Graphic();
     }
 
     start() {

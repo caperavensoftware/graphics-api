@@ -3,6 +3,14 @@
  */
 class Vector {
     /**
+     * @constructor
+     * @returns {Vector}
+     */
+    constructor() {
+        return this;
+    }
+
+    /**
      * Values property that contains the matrix values
      * @returns {array}
      */
@@ -50,6 +58,14 @@ class Vector {
      */
     multiply(v1, v2) {
 
+    }
+
+    /**
+     * Set the vector values
+     * @param args {array};
+     */
+    set(...args) {
+        this.values = args;
     }
 
     /**
