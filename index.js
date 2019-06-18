@@ -2,7 +2,7 @@ import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 import {createTestScene} from "./test-scene.js";
 import {Base} from "./src/lib/base.js";
-import {Graphic} from "./src/scene/graphic.js";
+import {Graphic} from "./src/shapes/graphic.js";
 
 /**
  * Test project

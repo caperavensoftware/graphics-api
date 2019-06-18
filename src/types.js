@@ -1,3 +1,5 @@
+import {Base} from "./lib/base.js";
+
 /**
  * Vector base class
  */
@@ -69,6 +71,15 @@ class Vector {
     }
 
     /**
+     * This function creates a new vector as a copy with the same values.
+     */
+    copy() {
+        const result = new Vector();
+        result.values = this.values.splice(0);
+        return result;
+    }
+
+    /**
      * Function used to create the value matrix
      * @private
      * @returns {Array}
@@ -109,6 +120,15 @@ export class Vector2 extends Vector {
      */
     set y(newValue) {
         this.values[1] = newValue;
+    }
+
+    /**
+     * This function creates a new vector as a copy with the same values.
+     */
+    copy() {
+        const result = new Vector2();
+        result.values = this.values.splice(0);
+        return result;
     }
 
     /**
@@ -155,11 +175,105 @@ export class Vector4 extends Vector2 {
     }
 
     /**
+     * This function creates a new vector as a copy with the same values.
+     */
+    copy() {
+        const result = new Vector4();
+        result.values = this.values.splice(0);
+        return result;
+    }
+
+    /**
      * Function used to create the value matrix
      * @private
      * @returns {Array[4]}
      */
     _createMatrix() {
         return [4];
+    }
+}
+
+/**
+ * padding is a vector4 data structure but uses left, top, right and bottom as values
+ */
+export class Padding extends Base {
+    /**
+     * data getter, defaults padding to 0, 0, 0, 0
+     * @returns {array[4]}
+     */
+    get data() {
+        return this.getProperty("data", () => [0, 0, 0, 0]);
+    }
+
+    /**
+     * data setter
+     * @param newValue
+     */
+    set data(newValue) {
+        this.setProperty("data", newValue);
+    }
+
+    /**
+     * get left value
+     * @returns {number}
+     */
+    get left() {
+        return this.data[0];
+    }
+
+    /**
+     * set left value
+     * @param newValue
+     */
+    set left(newValue) {
+        this.data[0] = newValue;
+    }
+
+    /**
+     * get top value
+     * @returns {number}
+     */
+    get top() {
+        return this.data[1];
+    }
+
+    /**
+     * set top value
+     * @param newValue
+     */
+    set top(newValue) {
+        this.data[1] = newValue;
+    }
+
+    /**
+     * get right value
+     * @returns {number}
+     */
+    get right() {
+        return this.data[2];
+    }
+
+    /**
+     * set right value
+     * @param newValue
+     */
+    set right(newValue) {
+        this.data[2] = newValue;
+    }
+
+    /**
+     * get bottom value
+     * @returns {number}
+     */
+    get bottom() {
+        return this.data[3];
+    }
+
+    /**
+     * set bottom value
+     * @param newValue
+     */
+    set bottom(newValue) {
+        this.data[3] = newValue;
     }
 }
