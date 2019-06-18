@@ -127,7 +127,12 @@ export class Vector2 extends Vector {
         result.values = this.values.splice(0);
         return result;
     }
-    
+
+    /**
+     * Add this vector to the current values
+     * @param vector
+     * @returns {Vector2}
+     */
     add(vector) {
         this.x += vector.x;
         this.y += vector.y;
@@ -279,7 +284,13 @@ export class Padding extends Base {
     set bottom(newValue) {
         this.data[3] = newValue;
     }
-    
+
+    /**
+     * set the vector values.
+     * If the parameter is 1, fill the values on each with this value.
+     * If the parameters is more than one it should be all 4 values
+     * @param args
+     */
     set(...args) {
         if (args.length === 1) {
             this._data = [args[0], args[0], args[0], args[0]];
