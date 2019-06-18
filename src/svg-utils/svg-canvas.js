@@ -1,5 +1,6 @@
 import {Canvas} from "./../canvas/canvas.js";
-import {createSvg} from "./create.js";
+import {createSvg} from "./svg-create.js";
+import {SvgCamera} from "./svg-camera.js";
 
 /**
  * This is a svg canvas class responsible for rendering svg scenes
@@ -26,6 +27,22 @@ export class SvgCanvas extends Canvas {
         }
     }
 
+    /**
+     * Camera getter. will be set by default to fit the entire svg canvas width and height.
+     * @returns {SvgCamera}
+     */
+    get camera() {
+        return this.getProperty("camera", () => SvgCamera.create().viewPort.set(0, 0, this.width, this.height));
+    }
+
+    /**
+     * Camera setter
+     * @param newValue
+     */
+    set camera(newValue) {
+        this.setProperty("camera", newValue);    
+    }
+    
     /**
      * @constructor
      * @param width {number/percentage}

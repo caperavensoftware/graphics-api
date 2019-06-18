@@ -11,7 +11,7 @@ export class Camera extends Base{
      * This may be the same size as the canvas or less
      */
     get viewPort() {
-        this.getProperty("viewPort", () => new Vector4().set(0, 0, 16, 9));
+        this.getProperty("viewPort", () => new Vector4());
     }
 
     /**
@@ -30,5 +30,13 @@ export class Camera extends Base{
      */
     getVisibleItems(scene) {
 
+    }
+
+    /**
+     * Given a graphic object determine if the item is visible or not
+     * @param graphic {Graphic}
+     */
+    isGraphicVisible(graphic) {
+        
     }
 }
