@@ -34,31 +34,27 @@ class Vector {
 
     /**
      * Vector add function
-     * @param v1 {vector}
-     * @param v2 {vector}
+     * @param vector {vector}
      * @returns vector
      */
-    add(v1, v2) {
-
+    add(vector) {
     }
 
     /**
      * Remove v2 from v1
-     * @param v1 {vector}
-     * @param v2 {vector}
+     * @param vector {vector}
      * @returns vector
      */
-    remove(v1, v2) {
+    remove(vector) {
 
     }
 
     /**
      * Multiply two vectors togeather
-     * @param v1 {vector}
-     * @param v2 {vector}
+     * @param vector {vector}
      * @returns vector
      */
-    multiply(v1, v2) {
+    multiply(vector) {
 
     }
 
@@ -131,6 +127,12 @@ export class Vector2 extends Vector {
         result.values = this.values.splice(0);
         return result;
     }
+    
+    add(vector) {
+        this.x += vector.x;
+        this.y += vector.y;
+        return this;
+    }
 
     /**
      * Function used to create the value matrix
@@ -138,7 +140,7 @@ export class Vector2 extends Vector {
      * @returns {Array[2]}
      */
     _createMatrix() {
-        return [2];
+        return [0, 0];
     }
 }
 
@@ -190,7 +192,7 @@ export class Vector4 extends Vector2 {
      * @returns {Array[4]}
      */
     _createMatrix() {
-        return [4];
+        return [0, 0, 0, 0];
     }
 }
 

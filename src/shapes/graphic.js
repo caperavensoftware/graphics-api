@@ -1,5 +1,5 @@
 import {Base} from "../lib/base.js";
-import {Vector4, Padding} from "../types.js"
+import {Vector2, Vector4, Padding} from "../types.js"
 
 /**
  * What is the graphic type, used to determine type of drawing strategy
@@ -37,6 +37,21 @@ export class Graphic extends Base {
     */
    set bbox(newValue) {
       this.setProperty("bbox", newValue);
+   }
+
+   /**
+    * Get the top right screen coordinate of this graphic
+    */
+   get location() {
+      return this.getProperty("location", () => new Vector2())
+   }
+
+   /**
+    * Set the top right screen cooridnate of this graphic
+    * @param newValue
+    */
+   set location(newValue) {
+      this.setProperty("location", newValue);
    }
 
    /**
