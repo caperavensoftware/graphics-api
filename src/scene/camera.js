@@ -2,7 +2,7 @@
  * This is a base class to extend for platform spesific cameras.
  */
 import {Base} from "../lib/base.js";
-import {Vector4} from "../types";
+import {Vector4} from "../types.js";
 
 export class Camera extends Base{
     /**
