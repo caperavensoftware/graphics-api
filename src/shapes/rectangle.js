@@ -1,4 +1,5 @@
 import {Graphic} from "./graphic.js";
+import {Vector2} from "../types.js";
 
 export class Rectangle extends Graphic {
     static create(width, height) {

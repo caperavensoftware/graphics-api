@@ -68,6 +68,7 @@ class Vector {
      */
     set(...args) {
         this.values = args;
+        return this;
     }
 
     /**

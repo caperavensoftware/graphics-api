@@ -1,3 +1,6 @@
+import {SvgRectangle} from "./src/svg-utils/shapes/svg-rectangle.js"
+
 export function createTestScene(scene) {
-    console.log("create test scene");
+    const rect = new SvgRectangle();
+    rect.render();
 }
