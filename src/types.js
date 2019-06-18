@@ -277,4 +277,16 @@ export class Padding extends Base {
     set bottom(newValue) {
         this.data[3] = newValue;
     }
+    
+    set(...args) {
+        if (args.length === 1) {
+            this._data = [args[0], args[0], args[0], args[0]];
+        }
+        else if (args.length === 4) {
+            this._data = args;
+        }
+        else {
+            throw new Error("padding set parameters must have either 1 or 4 values");
+        }
+    }
 }
