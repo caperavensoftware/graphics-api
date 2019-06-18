@@ -3,7 +3,7 @@ import {Vector2} from "../types.js";
 
 export class Rectangle extends Graphic {
     static create(width, height) {
-        const result = new Rectangle();
+        const result = new this.prototype.constructor();
         result.bbox.set(0, 0, width, height);
         return result;
     }

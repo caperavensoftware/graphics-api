@@ -148,7 +148,7 @@ export class Vector4 extends Vector2 {
      * @returns {*}
      */
     get width() {
-        return this.values[3];
+        return this.values[2];
     }
 
     /**
@@ -156,7 +156,7 @@ export class Vector4 extends Vector2 {
      * @param newValue
      */
     set width(newValue) {
-        this.values[3] = newValue;
+        this.values[2] = newValue;
     }
 
     /**
@@ -164,7 +164,7 @@ export class Vector4 extends Vector2 {
      * @returns {*}
      */
     get height() {
-        return this.values[4];
+        return this.values[3];
     }
 
     /**
@@ -172,7 +172,7 @@ export class Vector4 extends Vector2 {
      * @param newValue
      */
     set height(newValue) {
-        this.values[4] = newValue;
+        this.values[3] = newValue;
     }
 
     /**
