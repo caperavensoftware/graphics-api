@@ -1,7 +1,14 @@
 import {SvgRectangle} from "./src/svg-utils/shapes/svg-rectangle.js"
 
-export function createTestScene(scene) {
-    const rect = SvgRectangle.create(2, 1);
-    rect.location.set(1,1);
+export async function createTestScene(scene) {
+    setTimeout(() => {
+        scene.add(createRectangle(1, 1, 4, 2));
+    }, 0)
+}
+
+function createRectangle(x, y, width, height) {
+    const rect = SvgRectangle.create(width, height);
+    rect.location.set(x, y);
     rect.render();
+    return rect;    
 }

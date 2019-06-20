@@ -18,11 +18,11 @@ export class Project extends Base {
 
     constructor() {
         super();
+        
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
         createTestScene(this.canvas.scene);
+        
         window.addEventListener('unhandledrejection', event => alert(event.reason));
-
-        const g = new Graphic();
     }
 
     start() {

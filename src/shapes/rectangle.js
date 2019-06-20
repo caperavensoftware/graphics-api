@@ -5,6 +5,22 @@ import {Vector2} from "../types.js";
  * This is a rectangle class with all it's data calculations
  */
 export class Rectangle extends Graphic {
+    get width() {
+        return this.getProperty("width", () => 1);
+    }
+    
+    set width(newValue) {
+        this.setProperty("width", newValue);
+    }
+    
+    get height() {
+        return this.getProperty("height", () => 1);
+    }
+    
+    set height(newValue) {
+        this.setProperty("height", newValue);
+    }
+    
     /**
      * Static create function that allows piped expressions
      * @param width {number}
@@ -13,7 +29,8 @@ export class Rectangle extends Graphic {
      */
     static create(width, height) {
         const result = new this.prototype.constructor();
-        result.bbox.set(0, 0, width, height);
+        result.width = width;
+        result.height = height;
         return result;
     }
 
@@ -26,15 +43,16 @@ export class Rectangle extends Graphic {
             //todo: JHR: bbox should be renamed to dimentions or something, this is not used correctly.
             // the bounding box should be the end result of this calculation
             
-            const bounds = this.bbox;
             const padding = this.padding;
             const location = this.location;
+            const width = this.width;
+            const height = this.height;
 
             const data = [
-                new Vector2().set(bounds.x + padding.left, bounds.y + padding.top).add(location),          
-                new Vector2().set(bounds.width - padding.right, bounds.y + padding.top).add(location),
-                new Vector2().set(bounds.width - padding.right, bounds.height - padding.bottom).add(location),
-                new Vector2().set(bounds.x + padding.left, bounds.height - padding.bottom).add(location)   
+                new Vector2().set(padding.left, padding.top).add(location),          
+                new Vector2().set(width - padding.right, padding.top).add(location),
+                new Vector2().set(width - padding.right, height - padding.bottom).add(location),
+                new Vector2().set(padding.left, height - padding.bottom).add(location)   
             ]
             
             resolve(data);
