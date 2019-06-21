@@ -32,7 +32,11 @@ export class SvgCanvas extends Canvas {
      * @returns {SvgCamera}
      */
     get camera() {
-        return this.getProperty("camera", () => SvgCamera.create().viewPort.set(0, 0, this.width, this.height));
+        return this.getProperty("camera", () => {
+            const result = SvgCamera.create();
+            result.viewPort.set(0, 0, this.width, this.height);
+            return result;
+        });
     }
 
     /**
@@ -60,8 +64,14 @@ export class SvgCanvas extends Canvas {
     /**
      * Draw the svg from the scene graph
      */
-    render() {
+    async render() {
         if (super.render() === false) return;
+        
+        const visibleItems = this.camera.getVisibleItems(this.scene);
+        for (let item of visibleItems) {
+            const element = await item.render();
+            this.svg.appendChild(element);
+        }
     }
 
     /**

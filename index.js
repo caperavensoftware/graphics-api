@@ -20,12 +20,12 @@ export class Project extends Base {
         super();
         
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
-        createTestScene(this.canvas.scene);
         
         window.addEventListener('unhandledrejection', event => alert(event.reason));
     }
 
-    start() {
+    async start() {
+        await createTestScene(this.canvas.scene);
         this.canvas.render();
     }
 

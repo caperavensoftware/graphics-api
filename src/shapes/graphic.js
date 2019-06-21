@@ -70,6 +70,22 @@ export class Graphic extends Base {
       this.setProperty("padding", newValue);
    }
 
+   /**
+    * background setter, defaults to black
+    * @returns {color}
+    */
+   get background() {
+      return this.getProperty("background", () => "cornflowerblue");
+   }
+
+   /**
+    * background setter
+    * @param newValue
+    */
+   set background(newValue) {
+      this.setProperty("background", newValue);
+   }
+
    async getData() {
       return Promise.resolve();
    }

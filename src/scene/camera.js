@@ -11,7 +11,7 @@ export class Camera extends Base{
      * This may be the same size as the canvas or less
      */
     get viewPort() {
-        this.getProperty("viewPort", () => new Vector4());
+        return this.getProperty("viewPort", () => new Vector4());
     }
 
     /**
@@ -23,13 +23,30 @@ export class Camera extends Base{
     }
 
     /**
+     * Distance getter
+     */
+    get distance() {
+        return this.getProperty("distance", () => 5);
+    }
+
+    /**
+     * Set camera distance.
+     * The larger the number the further away.
+     * The further the camera is the smaller objects will appear.
+     * @param newValue
+     */
+    set distance(newValue) {
+        this.setProperty("distance", newValue);
+    }
+
+    /**
      * Given a scene, determine what graphics is visible and ready for drawing.
      * The canvas should use this during rendering if applicable.
      * @param scene
      * @returns {array}
      */
     getVisibleItems(scene) {
-
+        return scene.items;
     }
 
     /**
