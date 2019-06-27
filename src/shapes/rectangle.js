@@ -28,10 +28,7 @@ export class Rectangle extends Graphic {
      * @returns {Rectangle}
      */
     static create(width, height) {
-        const result = new this.prototype.constructor();
-        result.width = width;
-        result.height = height;
-        return result;
+        return super.create({width: width, height: height});
     }
 
     /**
@@ -53,7 +50,7 @@ export class Rectangle extends Graphic {
                 new Vector2().set(width - padding.right, padding.top).add(location),
                 new Vector2().set(width - padding.right, height - padding.bottom).add(location),
                 new Vector2().set(padding.left, height - padding.bottom).add(location)   
-            ]
+            ];
             
             resolve(data);
         }))

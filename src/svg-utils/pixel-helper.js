@@ -15,5 +15,5 @@ export function vector2ToPx(vector) {
 }
 
 export function unitToPixel(unit) {
-    return unit * 25;
+    return unit * window.pixelMultiplyer || 25;
 }

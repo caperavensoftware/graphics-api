@@ -18,7 +18,8 @@ export class Project extends Base {
 
     constructor() {
         super();
-        
+        window.pixelMultiplyer = 25;
+
         this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
         
         window.addEventListener('unhandledrejection', event => alert(event.reason));

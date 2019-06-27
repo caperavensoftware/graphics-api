@@ -86,6 +86,24 @@ export class Graphic extends Base {
       this.setProperty("background", newValue);
    }
 
+   /**
+    * Static create function that allows piped expressions
+    * @param args {object}: e.g. {width: 10, height: 10}
+    * @returns {instance of the graphic}
+    */
+   static create(args) {
+      const result = new this.prototype.constructor();
+
+      if (args != null) {
+         const keys = Object.keys(args);
+         for (let key of keys) {
+            result[key] = args[key];
+         }
+      }
+
+      return result;
+   }
+
    async getData() {
       return Promise.resolve();
    }
