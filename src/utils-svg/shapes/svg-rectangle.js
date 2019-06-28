@@ -1,5 +1,5 @@
 import {Rectangle} from "./../../shapes/rectangle.js"
-import {unitToPixel} from "./../pixel-helper.js";
+import {unitToPixel} from "../../lib/pixel-helper.js";
 import {createElement} from "./../svg-create.js";
 
 /**
@@ -7,7 +7,7 @@ import {createElement} from "./../svg-create.js";
  */
 export class SvgRectangle extends Rectangle {
     /**
-     * Create the svg element to render
+     * Create the dc element to render
      * @returns {rect}
      */
     async render() {

@@ -1,7 +1,7 @@
 import {BaseFeature} from "./base-feature.js";
 
 /**
- * This feature draws grid lines on the canvas
+ * This feature draws grid lines on the svgCanvas
  */
 export class CanvasGridFeature extends BaseFeature {
     /**

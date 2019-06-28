@@ -1,40 +1,50 @@
-import {SvgCanvas} from "./src/svg-utils/svg-canvas.js";
+import {SvgCanvas} from "./src/utils-svg/svg-canvas.js";
+import {GLCanvas} from "./src/utils-webgl/gl-canvas.js";
 import {CanvasGridFeature} from "./src/features/canvas-grid-feature.js";
 import {createTestScene} from "./test-scene.js";
 import {Base} from "./src/lib/base.js";
-import {Graphic} from "./src/shapes/graphic.js";
 
 /**
  * Test project
  */
 export class Project extends Base {
-    get canvas() {
-        return this.getProperty("canvas", () => new SvgCanvas("100%", "100%", "whitesmoke"));
+    get svgCanvas() {
+        return this.getProperty("svgCanvas", () => new SvgCanvas("600", "400", "whitesmoke"));
     }
 
-    set canvas(newValue) {
-        this.setProperty("canvas", newValue);
+    set svgCanvas(newValue) {
+        this.setProperty("svgCanvas", newValue);
+    }
+
+    get glCanvas() {
+        return this.getProperty("glCanvas", () => new GLCanvas("600", "400", "silver"));
+    }
+
+    set glCanvas(newValue) {
+        this.setProperty("glCanvas", newValue);
     }
 
     constructor() {
         super();
         window.pixelMultiplyer = 25;
 
-        this.canvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
+        this.svgCanvas.addFeature(CanvasGridFeature).catch(reason => console.error(reason));
         
         window.addEventListener('unhandledrejection', event => alert(event.reason));
     }
 
     async start() {
-        await createTestScene(this.canvas.scene);
-        this.canvas.render();
+        await createTestScene(this.svgCanvas.scene);
+        await createTestScene(this.glCanvas.scene);
+        this.svgCanvas.render();
+        this.glCanvas.render();
     }
 
     pause() {
-        this.canvas.isRunning(false);
+        this.svgCanvas.isRunning(false);
     }
 
     resume() {
-        this.canvas.isRunning(true);
+        this.svgCanvas.isRunning(true);
     }
 }

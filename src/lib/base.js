@@ -16,18 +16,23 @@ export class Base {
      * @param name
      * @param value
      */
-    setProperty(name, value) {
+    setProperty(name, value, callback) {
         const field = `_${name}`;
         if (this[field] != null && this[field].dispose != null) {
             this[field].dispose();
         }
 
         this[field] = value;
+
+        if (value != null && callback != null) {
+            callback();
+        }
+
         this.propertyChanged(name, value);
     }
 
     /**
-     * Property changed event notifying changes to the canvas properties
+     * Property changed event notifying changes to the svgCanvas properties
      * @param name {string}: name of the property that has changed
      * @param value {value}: new value of the property
      */

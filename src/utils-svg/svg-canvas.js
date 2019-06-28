@@ -1,24 +1,24 @@
 import {Canvas} from "./../canvas/canvas.js";
-import {createSvg} from "./svg-create.js";
+import {createContext} from "./svg-create.js";
 import {SvgCamera} from "./svg-camera.js";
 
 /**
- * This is a svg canvas class responsible for rendering svg scenes
+ * This is a dc svgCanvas class responsible for rendering dc scenes
  */
 export class SvgCanvas extends Canvas {
     /**
-     * Svg getter, if no svg exists, it will create one for you
+     * Svg getter, if no display context exists, it will create one for you
      * @returns {SVGElement}
      */
-    get svg() {
-        return this.getProperty("svg", createSvg);
+    get dc() {
+        return this.getProperty("dc", createContext);
     }
 
     /**
-     * Svg setter, will aquire additional properties like width and height form the svg you give.
+     * Svg setter, will aquire additional properties like width and height form the display context you give.
      * @param newValue {SVGElement}
      */
-    set svg(newValue) {
+    set dc(newValue) {
         this._svg = newValue;
 
         if (this._svg != null) {
@@ -28,7 +28,7 @@ export class SvgCanvas extends Canvas {
     }
 
     /**
-     * Camera getter. will be set by default to fit the entire svg canvas width and height.
+     * Camera getter. will be set by default to fit the entire dc svgCanvas width and height.
      * @returns {SvgCamera}
      */
     get camera() {
@@ -62,7 +62,15 @@ export class SvgCanvas extends Canvas {
     }
 
     /**
-     * Draw the svg from the scene graph
+     * Destroy object
+     */
+    dispose() {
+        this.camera = null;
+        this.dc = null;
+    }
+
+    /**
+     * Draw the dc from the scene graph
      */
     async render() {
         if (super.render() === false) return;
@@ -70,22 +78,22 @@ export class SvgCanvas extends Canvas {
         const visibleItems = this.camera.getVisibleItems(this.scene);
         for (let item of visibleItems) {
             const element = await item.render();
-            this.svg.appendChild(element);
+            this.dc.appendChild(element);
         }
     }
 
     /**
-     * Property changed event notifying changes to the canvas properties
+     * Property changed event notifying changes to the svgCanvas properties
      * @param name {string}: name of the property that has changed
      * @param value {value}: new value of the property
      */
     propertyChanged(name, value) {
         if (this._attributes.indexOf(name) != -1) {
-            this.svg.setAttribute(name.toLowerCase(), value);
+            this.dc.setAttribute(name.toLowerCase(), value);
         }
 
         if (this._styleProperties.indexOf(name) != -1) {
-            this.svg.style[name.toLowerCase()] = value;
+            this.dc.style[name.toLowerCase()] = value;
         }
     }
 }

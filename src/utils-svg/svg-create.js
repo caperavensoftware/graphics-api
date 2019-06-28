@@ -1,10 +1,10 @@
 const namespace = "http://www.w3.org/2000/svg";
 
 /**
- * SVG Utility that creates a svg element
+ * SVG Utility that creates a dc element
  * @returns {SVGElement}
  */
-export function createSvg() {
+export function createContext() {
     return document.createElementNS(namespace, "svg");
 }
 

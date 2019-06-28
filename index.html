@@ -26,6 +26,9 @@
             left: 0;
             right: 0;
             bottom: 0;
+            overflow: hidden;
+            display:flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -43,12 +46,15 @@
 
         const project = new Project();
 
-        document.querySelector("#btnPause").addEventListener("click", () => project.pause());
-        document.querySelector("#btnResume").addEventListener("click", () => project.resume());
+        import("./threejs/three.js").then(() => {
+            document.querySelector("#btnPause").addEventListener("click", () => project.pause());
+            document.querySelector(".body").appendChild(project.svgCanvas.dc);
 
-        document.querySelector(".body").appendChild(project.canvas.svg);
+            document.querySelector("#btnResume").addEventListener("click", () => project.resume());
+            document.querySelector(".body").appendChild(project.glCanvas.dc);
 
-        project.start();
+            project.start();
+        });
     </script>
 </body>
 </html>

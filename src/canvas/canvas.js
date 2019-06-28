@@ -2,7 +2,7 @@ import {Base} from "./../lib/base.js";
 import {Scene} from "./../scene/scene.js";
 
 /**
- * This is a base class for canvas types.
+ * This is a base class for svgCanvas types.
  * Do not use this class directly but instead the appropriate derived instance.
  */
 export class Canvas extends Base {
@@ -100,7 +100,7 @@ export class Canvas extends Base {
     }
 
     /**
-     * Register feature with the canvas used during rendering processes
+     * Register feature with the svgCanvas used during rendering processes
      * @param feature {Class}
      */
     async addFeature(feature) {
@@ -108,7 +108,7 @@ export class Canvas extends Base {
     }
 
     /**
-     * Remove feature from the canvas
+     * Remove feature from the svgCanvas
      * @param feature {Class}
      */
     async removeFeature(feature) {
@@ -116,7 +116,7 @@ export class Canvas extends Base {
     }
 
     /**
-     * This function renders the features associated registered with the canvas
+     * This function renders the features associated registered with the svgCanvas
      * @returns {Promise<void>}
      */
     async renderFeatures() {

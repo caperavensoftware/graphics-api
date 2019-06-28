@@ -7,7 +7,7 @@ export async function createTestScene(scene) {
 }
 
 async function createRectangle(x, y, width, height, background) {
-    const module = await import("./src/svg-utils/shapes/svg-rectangle.js");
+    const module = await import("./src/utils-svg/shapes/svg-rectangle.js");
     const result = module.SvgRectangle.create(width, height);
     result.location.set(x, y);
     result.background = background;
@@ -15,7 +15,7 @@ async function createRectangle(x, y, width, height, background) {
 }
 
 async function createCircle(x, y, r, background) {
-    const module = await import("./src/svg-utils/shapes/svg-circle.js");
+    let module = await import("./src/utils-svg/shapes/svg-circle.js");
     const result = module.SvgCircle.create(r);
     result.location.set(x, y);
     result.background = background;

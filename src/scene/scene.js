@@ -59,7 +59,7 @@ class SceneBase extends Base {
 }
 
 /**
- * Scene object used on canvas to render objects
+ * Scene object used on svgCanvas to render objects
  */
 export class Scene extends SceneBase {
     render() {
