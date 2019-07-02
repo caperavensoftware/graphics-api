@@ -4,6 +4,10 @@ import {Base} from "./lib/base.js";
  * Vector base class
  */
 class Vector {
+    static create(...args) {
+        return new this.prototype.constructor().set(...args);
+    }
+
     /**
      * @constructor
      * @returns {Vector}

@@ -17,7 +17,7 @@ export class SvgCircle extends Circle {
             r: unitToPixel(this.radius - this.padding.right - this.padding.bottom),
         });
 
-        result.style.fill = this.background;
+        result.style.fill = this.color;
         return result;
     }
 }
