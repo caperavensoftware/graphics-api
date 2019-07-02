@@ -12,10 +12,10 @@ export class SvgLine extends Line {
      */
     async render() {
         const result = createElement("line", {
-            x1: unitToPixel(this.start.x),
-            y1: unitToPixel(this.start.end),
-            x2: unitToPixel(this.end.x),
-            y2: unitToPixel(this.end.y)
+            x1: unitToPixel(this.location.x + this.start.x + this.padding.left),
+            y1: unitToPixel(this.location.y + this.start.end + this.padding.top),
+            x2: unitToPixel(this.location.x + this.end.x - this.padding.left),
+            y2: unitToPixel(this.location.y + this.end.y - this.padding.top)
         });
         
         result.style.stroke = this.color;

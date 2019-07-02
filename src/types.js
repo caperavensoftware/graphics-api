@@ -80,6 +80,10 @@ class Vector {
         return result;
     }
 
+    toString() {
+        return this.values.join(" ");
+    }
+
     /**
      * Function used to create the value matrix
      * @private
