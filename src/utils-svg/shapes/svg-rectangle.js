@@ -18,6 +18,7 @@ export class SvgRectangle extends Rectangle {
             height: unitToPixel(this.height - this.padding.bottom)
         });
         
+        result.style.opacity = this.opacity;
         result.style.fill = this.color;
         return result;
     }

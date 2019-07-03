@@ -38,8 +38,8 @@ export class Line extends Graphic {
      * @param {Vector2} start 
      * @param {Vector2} end 
      */
-    static create(start, end) {
-        return super.create({start: start, end: end});
+    static create(x1, y1, x2, y2) {
+        return super.create({start: Vector2.create(x1, y1), end: Vector2.create(x2, y2)});
     }
 
     /**

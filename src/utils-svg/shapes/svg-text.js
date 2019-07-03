@@ -12,7 +12,10 @@ export class SvgText extends Text {
             x: unitToPixel(this.location.x + this.padding.left),
             y: unitToPixel(this.location.y + this.padding.top),
         });
+        
         result.textContent = this.string;
+
+        result.style.opacity = this.opacity;
         result.style.fill = this.color;
         result.style.fontSize = unitToPixel(this.size);
         return result;

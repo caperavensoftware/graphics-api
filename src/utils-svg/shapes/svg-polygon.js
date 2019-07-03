@@ -16,6 +16,7 @@ export class SvgPolygon extends Polygon {
             points: points
         });
         
+        result.style.opacity = this.opacity;
         result.style.fill = this.color;
         return result;
     }

@@ -18,6 +18,7 @@ export class SvgLine extends Line {
             y2: unitToPixel(this.location.y + this.end.y - this.padding.top)
         });
         
+        result.style.opacity = this.opacity;
         result.style.stroke = this.color;
         return result;
     }

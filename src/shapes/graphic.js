@@ -87,6 +87,20 @@ export class Graphic extends Base {
    }
 
    /**
+    * Get the opacity value between 0 and 1
+    */
+   get opacity() {
+      return this.getProperty("opacity", () => 1)
+   }
+
+   /**
+    * Set opacity value between 0 and 1
+    */
+   set opacity(newValue) {
+      this.setProperty("opacity", newValue);
+   }
+
+   /**
     * Static create function that allows piped expressions
     * @param args {object}: e.g. {width: 10, height: 10}
     * @returns {instance of the graphic}
