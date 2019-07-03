@@ -1,4 +1,5 @@
 import {Vector2} from "./src/types.js";
+import { createContext } from "./src/utils-svg/svg-create.js";
 
 export async function createTestScene(scene) {
     return new Promise(async (resolve) => {
@@ -6,6 +7,7 @@ export async function createTestScene(scene) {
         scene.add(await createCircle(8, 2, 2, "hotpink"));
         scene.add(await createLine(1, 1, 5, 3, "white"));
         scene.add(await createPolygon([1, 1, 5, 1, 5, 3, 1, 3], "cornflowerblue", [0, 3]));
+        scene.add(await createText("Hello SVG", 0.7, "gray"));
         resolve();
     });
 }
@@ -45,5 +47,12 @@ async function createPolygon(points, color, location) {
     const result = module.SvgPolygon.create(vectors);
     result.color = color;
     result.location = Vector2.create(location[0], location[1]);
+    return result;
+}
+
+async function createText(text, size, color) {
+    let module = await import("./src/utils-svg/shapes/svg-text.js");
+    const result = module.SvgText.create(text, size);
+    result.color = color;
     return result;
 }
