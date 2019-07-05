@@ -1,12 +1,12 @@
 import {Vector2} from "./src/types.js";
-import { createContext } from "./src/utils-svg/svg-create.js";
+import {MatrixFactory} from "./src/lib/matrix.js";
 
 export async function createTestScene(scene) {
     return new Promise(async (resolve) => {
         scene.add(await createRectangle(1, 1, 4, 2, "coral"));
         scene.add(await createLine(1, 1, 5, 3, "white"));
         scene.add(await createPolygon([1, 1, 5, 1, 5, 3, 1, 3], "cornflowerblue", [0, 3]));
-        scene.add(await createText("Hello SVG", 0.7, "gray"));
+        scene.add(await createText("Hello SVG", 0.64, "gray"));
         scene.add(await createCircle(5, 2, 2, "hotpink", 0.5));
         resolve();
     });
@@ -59,5 +59,9 @@ async function createText(text, size, color, opacity = 1) {
     const result = module.SvgText.create(text, size);
     result.color = color;
     result.opacity = opacity;
+
+    const matrix = MatrixFactory.get(MatrixFactory.type.translate, 2, 3, 4);
+    console.log(matrix);
+
     return result;
 }
